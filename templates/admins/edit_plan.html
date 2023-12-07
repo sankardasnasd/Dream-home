@@ -1,0 +1,29 @@
+{% extends "admins/index.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/myapp/admin_edit_plan_post/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="hidden" name="id" value="{{ data.id }}">
+  <table class="table table-bordered">
+    <tr>
+      <th width="180px">Plan Title</th>
+      <td><input type="text" value="{{ data.title }}" name="title" id="textfield" required class="form-control"/></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>
+          <textarea name="description" class="form-control" required>{{ data.description }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <th>Choose file</th>
+      <td><input type="file" name="textfield3" id="textfield3"  class="form-control" /></td>
+    </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <td><input type="submit" name="button" id="button" class="btn btn-success" value="Update" /></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

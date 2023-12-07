@@ -1,0 +1,29 @@
+{% extends "company/index.html" %}
+{% block body %}
+<form  method="post">
+{% csrf_token %}
+
+<br>
+<br>
+<table class="table table-bordered" border="1">
+  <tr>
+    <th>Sno</th>
+
+    <th>Product</th>
+    <th>Price</th>
+    <th>Qty</th>
+
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td width="50px">{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.PRODUCT.name }}</td>
+    <td width="150px">{{ i.PRODUCT.price }}</td>
+    <td width="50px">{{ i.qty }}</td>
+
+  </tr>
+    {% endfor %}
+</table>
+</form>
+{% endblock %}
